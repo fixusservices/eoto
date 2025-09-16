@@ -66,18 +66,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       // Mock API call - replace with actual API
       await new Promise(resolve => setTimeout(resolve, 1000));
       
+      // Check for test credentials
+      if (email !== 'test@psgtech.ac.in' || password !== 'test') {
+        throw new Error('Invalid credentials');
+      }
+      
       const mockUser: User = {
         id: '1',
-        email,
-        name: email.split('@')[0],
+        email: 'test@psgtech.ac.in',
+        name: 'Test Student',
         role: 'student',
         year: 3,
         field: 'Computer Science',
-        interests: ['Web Development', 'Machine Learning'],
-        skills: ['React', 'TypeScript', 'Python'],
-        bio: 'Passionate about learning and sharing knowledge',
-        connections: [],
-        groups: [],
+        interests: ['Web Development', 'Machine Learning', 'Data Structures', 'AI'],
+        skills: ['React', 'TypeScript', 'Python', 'Java', 'Node.js'],
+        bio: 'Computer Science student at PSG Tech, passionate about learning and sharing knowledge',
+        avatar: 'https://ui-avatars.com/api/?name=Test+Student&background=6366f1&color=fff',
+        connections: ['2', '3', '4', '5'],
+        groups: ['web-dev-101', 'ml-study', 'dsa-prep'],
         createdAt: new Date(),
       };
       
@@ -91,7 +97,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch (error) {
       toast({
         title: "Login failed",
-        description: "Please check your credentials and try again.",
+        description: "Invalid credentials. Use test@psgtech.ac.in / test",
         variant: "destructive",
       });
     } finally {
