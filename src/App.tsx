@@ -1,4 +1,3 @@
-import { type ReactNode } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,7 +20,7 @@ import { Navbar } from "./components/layout/Navbar";
 
 const queryClient = new QueryClient();
 
-const DashboardLayout = ({ children }: { children: ReactNode }) => (
+const DashboardLayout = ({ children }: { children: JSX.Element }) => (
   <div className="min-h-screen bg-background">
     <Navbar />
     {children}
