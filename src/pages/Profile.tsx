@@ -37,28 +37,7 @@ export default function Profile() {
   });
   const [newInterest, setNewInterest] = useState('');
   const [newSkill, setNewSkill] = useState('');
-  const [posts, setPosts] = useState<Post[]>([
-    {
-      id: '1',
-      title: 'Built a React Todo App with TypeScript',
-      content: 'Just completed my first React app using TypeScript! The type safety really helped catch bugs early. Check out the live demo and source code.',
-      tags: ['React', 'TypeScript', 'WebDev'],
-      likes: 24,
-      comments: 5,
-      createdAt: new Date('2024-03-10'),
-      visibility: 'public'
-    },
-    {
-      id: '2',
-      title: 'Machine Learning Project: Image Classification',
-      content: 'Trained a CNN model to classify different types of flowers with 95% accuracy. Used TensorFlow and Keras for the implementation.',
-      tags: ['ML', 'Python', 'TensorFlow'],
-      likes: 18,
-      comments: 3,
-      createdAt: new Date('2024-03-05'),
-      visibility: 'public'
-    }
-  ]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [showPostDialog, setShowPostDialog] = useState(false);
   const [newPost, setNewPost] = useState({
     title: '',

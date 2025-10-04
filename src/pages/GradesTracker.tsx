@@ -35,78 +35,22 @@ interface Goal {
   progress: number;
 }
 
-const mockGrades: Grade[] = [
-  {
-    id: '1',
-    course: 'Data Structures',
-    courseCode: 'CS201',
-    score: 85,
-    maxScore: 100,
-    percentage: 85,
-    grade: 'A',
-    credits: 4,
-    semester: 'Fall 2023',
-    date: '2023-12-15',
-    type: 'exam'
-  },
-  {
-    id: '2',
-    course: 'Web Development',
-    courseCode: 'CS301',
-    score: 92,
-    maxScore: 100,
-    percentage: 92,
-    grade: 'A+',
-    credits: 3,
-    semester: 'Spring 2024',
-    date: '2024-03-10',
-    type: 'project'
-  },
-  {
-    id: '3',
-    course: 'Machine Learning',
-    courseCode: 'CS401',
-    score: 78,
-    maxScore: 100,
-    percentage: 78,
-    grade: 'B+',
-    credits: 4,
-    semester: 'Spring 2024',
-    date: '2024-03-12',
-    type: 'exam'
-  },
-  {
-    id: '4',
-    course: 'Database Systems',
-    courseCode: 'CS302',
-    score: 88,
-    maxScore: 100,
-    percentage: 88,
-    grade: 'A',
-    credits: 3,
-    semester: 'Spring 2024',
-    date: '2024-03-15',
-    type: 'assignment'
-  }
-];
-
-const semesterData = [
-  { name: 'Fall 2022', GPA: 3.2, credits: 15 },
-  { name: 'Spring 2023', GPA: 3.4, credits: 16 },
-  { name: 'Fall 2023', GPA: 3.6, credits: 15 },
-  { name: 'Spring 2024', GPA: 3.8, credits: 14 }
-];
-
-const coursePerformance = [
-  { course: 'CS', average: 85 },
-  { course: 'Math', average: 78 },
-  { course: 'Physics', average: 82 },
-  { course: 'English', average: 88 },
-  { course: 'Lab', average: 90 }
-];
 
 export default function GradesTracker() {
-  const [grades, setGrades] = useState(mockGrades);
+  const [grades, setGrades] = useState<Grade[]>([]);
+  const [semesterData] = useState([
+    { name: 'Fall 2022', GPA: 3.2, credits: 15 },
+    { name: 'Spring 2023', GPA: 3.4, credits: 16 },
+    { name: 'Fall 2023', GPA: 3.6, credits: 15 },
+    { name: 'Spring 2024', GPA: 3.8, credits: 14 }
+  ]);
+  const [coursePerformance] = useState([
+    { course: 'CS', average: 85 },
+    { course: 'Math', average: 78 },
+    { course: 'Physics', average: 82 },
+    { course: 'English', average: 88 },
+    { course: 'Lab', average: 90 }
+  ]);
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [showGoalDialog, setShowGoalDialog] = useState(false);
   const [selectedTab, setSelectedTab] = useState('overview');

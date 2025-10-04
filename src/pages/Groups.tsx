@@ -30,76 +30,12 @@ interface Group {
   avatar?: string;
 }
 
-const mockGroups: Group[] = [
-  {
-    id: 'web-dev-101',
-    name: 'Web Development Mastery',
-    description: 'Learn modern web development with React, TypeScript, and Node.js',
-    category: 'study',
-    members: 12,
-    maxMembers: 20,
-    leader: 'Sarah Johnson',
-    topics: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
-    meetingSchedule: 'Every Tuesday & Thursday, 6 PM',
-    isPublic: true,
-    joined: true,
-    createdAt: new Date('2024-01-15'),
-    nextMeeting: new Date('2024-03-19T18:00:00'),
-    avatar: 'https://ui-avatars.com/api/?name=Web+Dev&background=6366f1&color=fff'
-  },
-  {
-    id: 'ml-study',
-    name: 'Machine Learning Study Group',
-    description: 'Deep dive into ML algorithms and practical applications',
-    category: 'study',
-    members: 8,
-    maxMembers: 15,
-    leader: 'Dr. Priya Sharma',
-    topics: ['Python', 'TensorFlow', 'Neural Networks', 'Deep Learning'],
-    meetingSchedule: 'Wednesdays, 5 PM',
-    isPublic: true,
-    joined: true,
-    createdAt: new Date('2024-02-01'),
-    nextMeeting: new Date('2024-03-20T17:00:00'),
-    avatar: 'https://ui-avatars.com/api/?name=ML+Study&background=10b981&color=fff'
-  },
-  {
-    id: 'dsa-prep',
-    name: 'DSA Interview Prep',
-    description: 'Master data structures and algorithms for technical interviews',
-    category: 'study',
-    members: 25,
-    maxMembers: 30,
-    leader: 'Raj Kumar',
-    topics: ['Algorithms', 'Data Structures', 'Competitive Programming', 'Interview Prep'],
-    meetingSchedule: 'Daily practice sessions at 8 PM',
-    isPublic: true,
-    joined: true,
-    createdAt: new Date('2024-01-20'),
-    avatar: 'https://ui-avatars.com/api/?name=DSA&background=ec4899&color=fff'
-  },
-  {
-    id: 'robotics-club',
-    name: 'Robotics & IoT Club',
-    description: 'Build robots and IoT projects together',
-    category: 'extracurricular',
-    members: 15,
-    maxMembers: 25,
-    leader: 'Alex Chen',
-    topics: ['Arduino', 'Raspberry Pi', 'IoT', 'Robotics'],
-    meetingSchedule: 'Saturdays, 2 PM',
-    isPublic: true,
-    joined: false,
-    createdAt: new Date('2024-02-10'),
-    avatar: 'https://ui-avatars.com/api/?name=Robotics&background=f59e0b&color=fff'
-  }
-];
 
 export default function Groups() {
   const { user } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTab, setSelectedTab] = useState('my-groups');
-  const [groups, setGroups] = useState(mockGroups);
+  const [groups, setGroups] = useState<Group[]>([]);
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [newGroup, setNewGroup] = useState({
     name: '',

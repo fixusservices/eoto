@@ -28,69 +28,12 @@ interface Connection {
   avatar?: string;
 }
 
-const mockConnections: Connection[] = [
-  {
-    id: '2',
-    name: 'Sarah Johnson',
-    email: 'sarah@psgtech.ac.in',
-    role: 'senior',
-    year: 4,
-    field: 'Computer Science',
-    interests: ['AI', 'Machine Learning', 'Web Development'],
-    skills: ['Python', 'TensorFlow', 'React'],
-    matchScore: 92,
-    status: 'suggested',
-    bio: 'Senior CS student passionate about AI and mentoring',
-    avatar: 'https://ui-avatars.com/api/?name=Sarah+Johnson&background=10b981&color=fff'
-  },
-  {
-    id: '3',
-    name: 'Raj Kumar',
-    email: 'raj@psgtech.ac.in',
-    role: 'student',
-    year: 3,
-    field: 'Computer Science',
-    interests: ['Data Structures', 'Competitive Programming', 'Web Development'],
-    skills: ['C++', 'Java', 'React'],
-    matchScore: 85,
-    status: 'connected',
-    bio: 'Love solving algorithms and building web apps',
-    avatar: 'https://ui-avatars.com/api/?name=Raj+Kumar&background=6366f1&color=fff'
-  },
-  {
-    id: '4',
-    name: 'Dr. Priya Sharma',
-    email: 'priya@psgtech.ac.in',
-    role: 'mentor',
-    field: 'Computer Science',
-    interests: ['Machine Learning', 'Research', 'Data Science'],
-    skills: ['Python', 'R', 'Research Methodology'],
-    matchScore: 78,
-    status: 'suggested',
-    bio: 'Professor specializing in ML research, happy to guide students',
-    avatar: 'https://ui-avatars.com/api/?name=Priya+Sharma&background=ec4899&color=fff'
-  },
-  {
-    id: '5',
-    name: 'Alex Chen',
-    email: 'alex@psgtech.ac.in',
-    role: 'student',
-    year: 2,
-    field: 'Computer Science',
-    interests: ['Web Development', 'UI/UX', 'Mobile Development'],
-    skills: ['JavaScript', 'Flutter', 'Figma'],
-    matchScore: 75,
-    status: 'pending',
-    bio: 'Frontend enthusiast and design lover',
-    avatar: 'https://ui-avatars.com/api/?name=Alex+Chen&background=f59e0b&color=fff'
-  }
-];
 
 export default function Connections() {
   const { user } = useAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTab, setSelectedTab] = useState('discover');
-  const [connections, setConnections] = useState(mockConnections);
+  const [connections, setConnections] = useState<Connection[]>([]);
   const [showRequestDialog, setShowRequestDialog] = useState(false);
   const [selectedUser, setSelectedUser] = useState<Connection | null>(null);
   const [requestMessage, setRequestMessage] = useState('');
